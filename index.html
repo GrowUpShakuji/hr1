@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-----
+***********************************************
+By Grow-Up prep-school Shakuji-Koen.
+***********************************************
+--->
+
+
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ヘロンちゃん！！三角形の面積を計算</title>
+
+<!--スマホの入力時フォーカス防止処理-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+
+</head>
+<body>
+<img id="Zu" src="img/Zu1.jpg"><BR>
+<h2><span id="text1">面積を求めたい辺の長さを入れてね！！</span></h2>
+<img id="manga" src="img/1.jpg">三角形の妖精ヘロンちゃん
+
+<table>
+	<tbody>
+		<tr>
+			<td><h3>たて長さ： <input type="number" id="Len1" size="30"><BR>
+				よこの長さ： <input type="number" id="Len2" size="30"><BR>
+				斜辺の長さ：<input type="number" id="Len3" size="30"></h3></td>
+			<td><input type="button" value="計算！" onclick="calc()" style="padding:10px;font-size:30px;"></td>
+		</tr>
+	</tbody>
+</table>
+	
+
+<script language="javascript" type="text/javascript">
+//以下、メイン処理------------------///////
+	function calc() {
+	var Len1 = document.getElementById("Len1");
+	var Len2 = document.getElementById("Len2");
+	var Len3 = document.getElementById("Len3");
+	var L1 = Number(Len1.value);
+	var L2 = Number(Len2.value);
+	var L3 = Number(Len3.value);
+	var hs = (L1+L2+L3)/2;
+	var aa = (hs-L1)*(hs-L2)*(hs-L3)*hs;
+	var a = Math.sqrt(aa);
+
+//小数第３位で四捨五入
+	a =Math.floor( a * Math.pow( 10, 3 ) ) / Math.pow( 10, 3 );
+
+//入力値チェック
+	if (NumCheck(Len1.value+Len2.value+Len3.value)){
+		ImgChange1(2)
+		TextChange("数字を入れてね・・・。");
+	}else{
+		if (SankakuCheck(L1,L2,L3)){
+			ImgChange1(1)
+			ImgChange2(2)
+			TextChange("やったぁ！計算できたよ～！！<BR>面積は、"+a+"だ～～！！");
+		}else{
+//三角形にならない場合の処理
+			ImgChange1(2)
+			ImgChange2(1)
+			TextChange("その長さだと三角形にならないよ～！！");
+		}
+	}
+	}
+//---------以上、メイン処理部分///////////
+
+
+//Image Change1 //
+            var pics_src = new Array("img/1.jpg","img/2.jpg","img/3.jpg");
+ 
+            function ImgChange1(num){
+  
+                document.getElementById("manga").src=pics_src[num];
+            }
+
+//Image Change2 //
+            var pics_src2 = new Array("img/Zu1.jpg","img/Zu2.jpg");
+ 
+            function ImgChange2(num){
+  
+                document.getElementById("Zu").src=pics_src2[num];
+            }
+//Text Change//
+	function TextChange(text) {
+		var x = document.getElementById("text1");
+		x.innerHTML = text;
+			}
+//Input Check//
+	function NumCheck(str) {
+		if (str.match(/^[0-9]+$/)) {      
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+	
+//Sankaku Check//
+	function SankakuCheck(n1,n2,n3) {
+		if ((n1<=n2+n3)&&(n2<=n1+n3)&&(n3<=n1+n2)){      
+			return 1;
+		} else{
+			return 0;		
+		}
+	}
+</script>
+
+
+
+</body>
+</html>
