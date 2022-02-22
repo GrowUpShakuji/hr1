@@ -31,7 +31,7 @@ By Grow-Up prep-school Shakuji-Koen.
 	</tbody>
 </table>
 	
-
+/////////////////////////////////////////////////////////////
 <script language="javascript" type="text/javascript">
 //以下、メイン処理------------------///////
 	function calc() {
@@ -50,36 +50,42 @@ By Grow-Up prep-school Shakuji-Koen.
 
 //入力値チェック
 	if (NumCheck(Len1.value+Len2.value+Len3.value)){
-		ImgChange1(2)
+		MangaChange(2)
 		TextChange("数字を入れてね・・・。");
 	}else{
+//三角形ができる条件チェック
 		if (SankakuCheck(L1,L2,L3)){
-			ImgChange1(1)
-			ImgChange2(0)
+			MangaChange(1);
+			if(a){
+				ZuChange(0);
+			}else{
+				ZuChange(2);
+			}
+			
 			TextChange("やったぁ！計算できたよ～！！<BR>面積は、"+a+"だ～～！！");
 		}else{
 //三角形にならない場合の処理
-			ImgChange1(2)
-			ImgChange2(1)
+			MangaChange(2)
+			ZuChange(1)
 			TextChange("その長さだと三角形にならないよ～！！");
 		}
 	}
 	}
 //---------以上、メイン処理部分///////////
-
+/////////////////////////////////////////////////////////////
 
 //Image Change1 //
             var pics_src = new Array("img/1.jpg","img/2.jpg","img/3.jpg");
  
-            function ImgChange1(num){
+            function MangaChange(num){
   
                 document.getElementById("manga").src=pics_src[num];
             }
 
 //Image Change2 //
-            var pics_src2 = new Array("img/Zu1.jpg","img/Zu2.jpg");
+            var pics_src2 = new Array("img/Zu1.jpg","img/Zu2.jpg","img/Zu3.jpg");
  
-            function ImgChange2(num){
+            function ZuChange(num){
   
                 document.getElementById("Zu").src=pics_src2[num];
             }
