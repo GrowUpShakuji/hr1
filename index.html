@@ -23,9 +23,9 @@ By Grow-Up prep-school Shakuji-Koen.
 <table>
 	<tbody>
 		<tr>
-			<td><h3>たて長さ： <input type="number" id="Len1" size="30"><BR>
-				よこの長さ： <input type="number" id="Len2" size="30"><BR>
-				斜辺の長さ：<input type="number" id="Len3" size="30"></h3></td>
+			<td><h3>辺aの長さ： <input type="number" id="Len1" size="30"><BR>
+				辺bの長さ： <input type="number" id="Len2" size="30"><BR>
+				辺cの長さ：<input type="number" id="Len3" size="30"></h3></td>
 			<td><input type="button" value="計算！" onclick="calc()" style="padding:10px;font-size:30px;"></td>
 		</tr>
 	</tbody>
@@ -55,7 +55,7 @@ By Grow-Up prep-school Shakuji-Koen.
 	}else{
 		if (SankakuCheck(L1,L2,L3)){
 			ImgChange1(1)
-			ImgChange2(2)
+			ImgChange2(0)
 			TextChange("やったぁ！計算できたよ～！！<BR>面積は、"+a+"だ～～！！");
 		}else{
 //三角形にならない場合の処理
